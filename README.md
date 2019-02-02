@@ -3,21 +3,17 @@
 [https://hot-and-cold-app.netlify.com](https://hot-and-cold-app.netlify.com)
 
 ## SUMMARY
-This is a game where the user guesses a random number in the interval 1-100 set by the computer, and gets feedback in the form of the following words; cold, warm, hot, extremely hot.
-The purpose is to guess the number in as little attempts as possible.
-The user can track his progress because previous attempts are available.
+This is a refactored version of the react-hot-cold-app project located [here](https://github.com/ispoljari/react-recipe-builder-app).
 
-## DEMO VIDEO
-![Demo video](demo.gif)
+In this version, state management is implemented using Redux.
 
 ## BUILT WITH:
 
+**CLIENT SIDE**: HTML5, CSS3, REACT/ (ES6 JS)
+
+**STATE MANAGEMENT TOOLS**: REDUX
+
 **TESTING**: ENZYME (a few component unit tests)
 
-**CLIENT SIDE**: HTML5, CSS3, REACT (ES6 JS)
-
-**AUTOMATION**: CREATE-REACT-APP
-
-
-### This project was bootstrapped with Create React App.
+#### This project was bootstrapped with Create React App.
 
