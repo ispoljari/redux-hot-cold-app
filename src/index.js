@@ -5,12 +5,12 @@ import store from './store';
 
 import * as Styled from './global-style';
 
-import App from './App';
+import AppContainer from './AppContainer';
 
 ReactDOM.render(
   <Provider store={store}>
     <Styled.Global />
-    <App />
+    <AppContainer />
   </Provider>,
   document.getElementById('root')
 );
