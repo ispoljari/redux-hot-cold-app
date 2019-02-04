@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { submitGuess } from './actions';
+import { submitGuess, resetGame } from './actions';
 
 import { Banner, Feedback, Form, Progress, Reset, Info, Author } from './components';
 import { Grid, Row, Col } from '@smooth-ui/core-sc';
 import * as Styled from './style';
 
 export class App extends Component { 
-  // resetGame = () => this.setState(getInitialState());
-
   submitGuess = e => {
     e.preventDefault();
 
@@ -16,6 +14,10 @@ export class App extends Component {
       this.props.dispatch(submitGuess(e.target.elements.guess.value));
       e.target.elements.guess.value = '';
     }
+  }
+
+  resetGame = () => {
+    this.props.dispatch(resetGame());
   }
 
   render() {

@@ -25,6 +25,14 @@ export const hotColdReducer = (state=initialState, action) => {
       block: absDiff === 0
     });
 
+  } else if (action.type === actions.RESET_GAME) {
+    return Object.assign({}, state, {
+      actual: generateRandomNumber(),
+      guess: undefined,
+      allGuesses: [],
+      feedbackMessage: 'Waiting...',
+      block: false
+    });
   }
 
   return state;
