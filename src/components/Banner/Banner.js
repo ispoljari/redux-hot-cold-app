@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Typography } from '@smooth-ui/core-sc';
 
 const Banner = React.memo(() => (
