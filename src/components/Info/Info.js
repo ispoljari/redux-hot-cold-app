@@ -10,8 +10,7 @@ import {
   Button, 
   Typography
 } from '@smooth-ui/core-sc';
-
-import * as Styled from './style';
+import * as Styled from './Info.style';
 
 class Info extends Component {
   state = {
@@ -34,20 +33,37 @@ class Info extends Component {
   render() {
     return (
       <Styled.Info>
-        <Button variant="info" width={1} minHeight={40} fontSize={22} type="button" onClick={this.handleShow}>
+        <Button 
+          variant="info" 
+          width={1} 
+          minHeight={40} 
+          fontSize={22} 
+          type="button" 
+          onClick={this.handleShow}
+        >
           How To Play
         </Button>
-        <Modal opened={this.state.show} onClose={this.handleClose}>
+        <Modal 
+          opened={this.state.show} 
+          onClose={this.handleClose}
+        >
           <ModalDialog>
             <ModalContent>
 
               <ModalHeader>
-                <Typography variant="h2" textAlign="center" color="black">
+                <Typography 
+                  variant="h2" 
+                  textAlign="center" 
+                  color="black"
+                >
                   Game Rules
                 </Typography>
               </ModalHeader>
       
-              <ModalBody fontSize={20} color="black">
+              <ModalBody 
+                fontSize={20} 
+                color="black"
+              >
                 This is a Number Guessing Game with the following rules:
                 <br />
                 <br />
@@ -64,7 +80,16 @@ class Info extends Component {
               </ModalBody>
       
               <ModalFooter>
-                <Button variant="success" size="md" width={0.3} mt={10} minHeight={40} fontSize={22} type="button" onClick={this.handleClose}>
+                <Button 
+                  variant="success" 
+                  size="md" 
+                  width={0.3} 
+                  mt={10} 
+                  minHeight={40} 
+                  fontSize={22} 
+                  type="button" 
+                  onClick={this.handleClose}
+                >
                   YES
                 </Button>
               </ModalFooter>
