@@ -88,7 +88,9 @@ App.propTypes = {
     feedbackMessage: PropTypes.string.isRequired, 
     block: PropTypes.bool.isRequired, 
     guess: PropTypes.string
-  })
+  }),
+  submitGuess: PropTypes.func.isRequired,
+  resetGame: PropTypes.func.isRequired,
 };
 
 App.defaultProps = {
