@@ -1,4 +1,4 @@
-import { generateRandomNumber } from './util';
+import { generateRandomNumber } from '../util';
 
 const initialState = {
   actual: generateRandomNumber(),
