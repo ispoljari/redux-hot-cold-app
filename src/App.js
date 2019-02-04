@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { Banner, Feedback, Form, Progress, Reset, Info, Author } from './components';
 import { generateRandomNumber, getFeedback } from './util';
-
 import { Grid, Row, Col } from '@smooth-ui/core-sc';
 import * as Styled from './style';
 
@@ -14,7 +14,7 @@ const getInitialState = () => ({
   block: false
 });
 
-class App extends Component { 
+export class App extends Component { 
   state = getInitialState();
 
   resetGame = () => this.setState(getInitialState());
@@ -57,7 +57,7 @@ class App extends Component {
             <Styled.LandmarkContainer as="main" role="main">
               <Feedback feedback={feedbackMessage}/>
               <Form block = {block} returnGuessToApp={value => this.updateAppState(value)}/>
-              <Progress attempt={attempt} guess={guess} guessList={guessList}/>
+              <Progress attempt={this.props.indicator} guess={guess} guessList={guessList}/>
               <Reset resetGame = {this.resetGame}/>
               <Info />
             </Styled.LandmarkContainer>
@@ -75,4 +75,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  indicator: state.indicator
+});
+
+export default connect(mapStateToProps)(App);
