@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 
 import { Banner, Feedback, Form, Progress, Reset, Info, Author } from './components';
-import { getInitialState, getFeedback } from './util';
+import { generateRandomNumber, getFeedback } from './util';
 
 import { Grid, Row, Col } from '@smooth-ui/core-sc';
 import * as Styled from './style';
+
+const getInitialState = () => ({
+  actual: generateRandomNumber(),
+  guess: undefined,
+  allGuesses: [],
+  feedbackMessage: 'Waiting...',
+  block: false
+});
 
 class App extends Component { 
   state = getInitialState();
@@ -19,7 +27,6 @@ class App extends Component {
     this.setState(prevState => ({
         guess,
         allGuesses: [...prevState.allGuesses, {guess, feedbackColor}],
-        attempt: prevState.attempt + 1,
         feedbackMessage,
         block: absDiff === 0
       })
@@ -27,7 +34,8 @@ class App extends Component {
   }
 
   render() {
-    const { allGuesses, feedbackMessage, block, attempt, guess } = this.state;
+    const { allGuesses, feedbackMessage, block, guess } = this.state;
+    const attempt = allGuesses.length;
 
     const guessList = allGuesses.map((item, index) => 
       <Styled.ListItem key={index} color={item.feedbackColor}>

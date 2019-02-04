@@ -1,14 +1,5 @@
 export const generateRandomNumber = () => Math.floor(Math.random()*100) + 1;
 
-export const getInitialState = () => ({
-  actual: generateRandomNumber(),
-  guess: undefined,
-  allGuesses: [],
-  attempt: 0,
-  feedbackMessage: 'Waiting...',
-  block: false
-});
-
 export const getFeedback = absDiff => {
   let feedbackMessage;
   let feedbackColor;
