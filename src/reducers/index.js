@@ -8,6 +8,6 @@ const initialState = {
   block: false
 };
 
-const hotColdReducer = (state=initialState, action) => {
+export const hotColdReducer = (state=initialState, action) => {
   return state;
 }
