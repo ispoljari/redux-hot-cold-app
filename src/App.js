@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Banner, Feedback, Form, Progress, Reset, Info, Author } from './components';
 import { Grid, Row, Col } from '@smooth-ui/core-sc';
@@ -43,6 +44,26 @@ const App = ({ state, submitGuess, resetGame }) => {
       </Row>
     </Grid>
   );
+}
+
+App.propTypes = {
+  state: PropTypes.shape({
+    allGuesses: PropTypes.arrayOf(
+      PropTypes.shape({
+        guess: PropTypes.string.isRequired,
+        feedbackColor: PropTypes.string.isRequired
+      })
+    ),
+    feedbackMessage: PropTypes.string.isRequired, 
+    block: PropTypes.bool.isRequired, 
+    guess: PropTypes.string
+  })
+};
+
+App.defaultProps = {
+  state: PropTypes.shape({
+    guess: ''
+  })
 }
 
 
