@@ -10,34 +10,65 @@ const App = ({ state, submitGuess, resetGame }) => {
   const attempt = allGuesses.length;
 
   const guessList = allGuesses.map((item, index) => 
-    <Styled.ListItem key={index} color={item.feedbackColor}>
-      <span>{item.guess}</span>
+    <Styled.ListItem 
+      key={index} 
+      color={item.feedbackColor}
+    >
+      <span>
+        {item.guess}
+      </span>
     </Styled.ListItem>
   );
 
   return (
-    <Grid mt={20}>
+    <Grid 
+      mt={20}
+    >
       <Row>
         <Col>
-          <Styled.LandmarkContainer as="header" role="banner">
+          <Styled.LandmarkContainer 
+            as="header" 
+            role="banner"
+          >
             <Banner />
           </Styled.LandmarkContainer>
         </Col>
       </Row>
-      <Row mt={10}>
+      <Row 
+        mt={10}
+      >
         <Col>
-          <Styled.LandmarkContainer as="main" role="main">
-            <Feedback feedback={feedbackMessage}/>
-            <Form block = {block} onSubmit={submitGuess}/>
-            <Progress attempt={attempt} guess={guess} guessList={guessList}/>
-            <Reset resetGame = {resetGame}/>
+          <Styled.LandmarkContainer 
+            as="main" 
+            role="main"
+          >
+            <Feedback 
+              feedback={feedbackMessage}
+            />
+            <Form 
+              block = {block} 
+              onSubmit={submitGuess}
+            />
+            <Progress 
+              attempt={attempt} 
+              guess={guess} 
+              guessList={guessList}
+            />
+            <Reset 
+              resetGame = {resetGame}
+            />
             <Info />
           </Styled.LandmarkContainer>
         </Col>
       </Row>
-      <Row mt={15}>
+      <Row 
+        mt={15}
+      >
         <Col>
-          <Styled.LandmarkContainer as="footer" role="contentinfo">
+          <Styled.LandmarkContainer 
+            as="footer" 
+            role="contentinfo"
+          >
             <Author />
           </Styled.LandmarkContainer>
         </Col>
