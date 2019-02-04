@@ -1,26 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { submitGuess } from './actions';
 
 import { Banner, Feedback, Form, Progress, Reset, Info, Author } from './components';
-import { getFeedback } from './util';
 import { Grid, Row, Col } from '@smooth-ui/core-sc';
 import * as Styled from './style';
 
 export class App extends Component { 
   // resetGame = () => this.setState(getInitialState());
 
-  updateAppState = guess => {
-    const { actual } = this.state;
-    const absDiff = Math.abs(guess - actual);
-    const { feedbackMessage, feedbackColor } = getFeedback(absDiff);
-
-    this.setState(prevState => ({
-        guess,
-        allGuesses: [...prevState.allGuesses, {guess, feedbackColor}],
-        feedbackMessage,
-        block: absDiff === 0
-      })
-    ); 
+  submitGuess = e => {
+    e.preventDefault();
+    this.props.dispatch(submitGuess(e.target.elements.guess.value));
+    e.target.elements.guess.value = '';
   }
 
   render() {
@@ -46,7 +38,7 @@ export class App extends Component {
           <Col>
             <Styled.LandmarkContainer as="main" role="main">
               <Feedback feedback={feedbackMessage}/>
-              <Form block = {block} returnGuessToApp={value => this.updateAppState(value)}/>
+              <Form block = {block} onSubmit={this.updateAppState}/>
               <Progress attempt={attempt} guess={guess} guessList={guessList}/>
               <Reset resetGame = {this.resetGame}/>
               <Info />
