@@ -41,7 +41,7 @@ export class App extends Component {
           <Col>
             <Styled.LandmarkContainer as="main" role="main">
               <Feedback feedback={feedbackMessage}/>
-              <Form block = {block} onSubmit={this.updateAppState}/>
+              <Form block = {block} onSubmit={this.submitGuess}/>
               <Progress attempt={attempt} guess={guess} guessList={guessList}/>
               <Reset resetGame = {this.resetGame}/>
               <Info />
