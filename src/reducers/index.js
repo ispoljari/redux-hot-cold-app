@@ -4,7 +4,7 @@ const initialState = {
   actual: generateRandomNumber(),
   guess: undefined,
   allGuesses: [],
-  indicator: 'I\'m here man',
+  feedbackMessage: 'Waiting...',
   block: false
 };
 

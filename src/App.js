@@ -2,22 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { Banner, Feedback, Form, Progress, Reset, Info, Author } from './components';
-import { generateRandomNumber, getFeedback } from './util';
+import { getFeedback } from './util';
 import { Grid, Row, Col } from '@smooth-ui/core-sc';
 import * as Styled from './style';
 
-const getInitialState = () => ({
-  actual: generateRandomNumber(),
-  guess: undefined,
-  allGuesses: [],
-  feedbackMessage: 'Waiting...',
-  block: false
-});
-
 export class App extends Component { 
-  state = getInitialState();
-
-  resetGame = () => this.setState(getInitialState());
+  // resetGame = () => this.setState(getInitialState());
 
   updateAppState = guess => {
     const { actual } = this.state;
@@ -34,7 +24,7 @@ export class App extends Component {
   }
 
   render() {
-    const { allGuesses, feedbackMessage, block, guess } = this.state;
+    const { allGuesses, feedbackMessage, block, guess } = this.props;
     const attempt = allGuesses.length;
 
     const guessList = allGuesses.map((item, index) => 
@@ -57,7 +47,7 @@ export class App extends Component {
             <Styled.LandmarkContainer as="main" role="main">
               <Feedback feedback={feedbackMessage}/>
               <Form block = {block} returnGuessToApp={value => this.updateAppState(value)}/>
-              <Progress attempt={this.props.indicator} guess={guess} guessList={guessList}/>
+              <Progress attempt={attempt} guess={guess} guessList={guessList}/>
               <Reset resetGame = {this.resetGame}/>
               <Info />
             </Styled.LandmarkContainer>
@@ -76,7 +66,11 @@ export class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  indicator: state.indicator
+  actual: state.actual,
+  guess: state.guess,
+  allGuesses: state.allGuesses,
+  feedbackMessage: state.feedbackMessage,
+  block: state.block
 });
 
 export default connect(mapStateToProps)(App);
