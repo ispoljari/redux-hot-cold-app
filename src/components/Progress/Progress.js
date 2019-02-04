@@ -1,10 +1,15 @@
 import React from 'react';
-import { Typography } from '@smooth-ui/core-sc';
-import * as Styled from './style';
+import PropTypes from 'prop-types';
 
-const Progress = ({attempt, guessList}) => (
+import { Typography } from '@smooth-ui/core-sc';
+import * as Styled from './Progress.style';
+
+const Progress = ({ attempt, guessList }) => (
   <Styled.Progress>
-    <Typography variant="h2" textAlign="center" >
+    <Typography 
+      variant="h2" 
+      textAlign="center" 
+    >
       Guess #{attempt}
     </Typography>
     <Styled.History>
@@ -12,5 +17,10 @@ const Progress = ({attempt, guessList}) => (
     </Styled.History>
   </Styled.Progress>
 );
+
+Progress.propTypes = {
+  attempt: PropTypes.number.isRequired,
+  guessList: PropTypes.arrayOf(String)
+}
 
 export default Progress;
