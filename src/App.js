@@ -11,8 +11,11 @@ export class App extends Component {
 
   submitGuess = e => {
     e.preventDefault();
-    this.props.dispatch(submitGuess(e.target.elements.guess.value));
-    e.target.elements.guess.value = '';
+
+    if (!this.props.block) {
+      this.props.dispatch(submitGuess(e.target.elements.guess.value));
+      e.target.elements.guess.value = '';
+    }
   }
 
   render() {
