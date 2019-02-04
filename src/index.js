@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
+import store from './store';
 import * as Styled from './global-style';
-
-import App from './App';
+import AppContainer from './AppContainer';
 
 ReactDOM.render(
-  <React.Fragment>
+  <Provider store={store}>
     <Styled.Global />
-    <App />
-  </React.Fragment>,
+    <AppContainer />
+  </Provider>,
   document.getElementById('root')
 );

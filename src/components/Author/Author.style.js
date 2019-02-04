@@ -7,6 +7,7 @@ const Author = styled.div`
 
 const Social = styled(Author)`
   margin-top: 5px;
+  margin-bottom: 20px;
 
   img {
     position:relative;
