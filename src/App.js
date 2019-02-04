@@ -62,7 +62,7 @@ const App = ({ state, submitGuess, resetGame }) => {
         </Col>
       </Row>
       <Row 
-        mt={15}
+        mt={30}
       >
         <Col>
           <Styled.LandmarkContainer 

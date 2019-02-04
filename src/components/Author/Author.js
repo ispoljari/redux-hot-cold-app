@@ -3,7 +3,7 @@ import { Typography } from '@smooth-ui/core-sc';
 
 import linkedinLogo from '../../svg/linkedin.svg';
 import githubLogo from '../../svg/github.svg';
-import * as Styled from './style';
+import * as Styled from './Author.style';
 
 const Author = () => (
   <div>
@@ -16,6 +16,13 @@ const Author = () => (
         <small>
           Developed by
         </small>
+      </Typography>
+      <Typography 
+        variant="h3" 
+        textAlign="center" 
+        fontSize={20}
+        ml="5px"
+      >
         <strong>
           Ivan Špoljarić
         </strong>
