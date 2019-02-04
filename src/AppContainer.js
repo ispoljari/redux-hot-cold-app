@@ -7,8 +7,15 @@ const mapStateToProps = state => ({
   state
 });
 
-const mapDispatchToProps = dispatch => ({
-  submitGuess: guess => dispatch(submitGuess(guess)),
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  submitGuess: e => {
+    e.preventDefault();
+
+    if (!ownProps.block) { 
+      dispatch(submitGuess(e.target.elements.guess.value));
+      e.target.elements.guess.value = '';
+    }
+  },
   resetGame: () => dispatch(resetGame())
 });
 
